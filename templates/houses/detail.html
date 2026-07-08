@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Інформація про будинок{% endblock %}
+{% block content %}
+<h2> {{house.name}} </h2>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">{{ house.info }}</li>
+  <li class="list-group-item">A second item</li>
+  <li class="list-group-item">A third item</li>
+  <li class="list-group-item">A fourth item</li>
+  <li class="list-group-item">And a fifth one</li>
+</ul>
+{% endblock %}

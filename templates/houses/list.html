@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Список будинків{% endblock %}
+{% block content %}
+<div class="d-flex flex-wrap justify-content-center gap-3">
+  {% for house in houses %}
+  <div class="card" style="width: 22rem;">
+    <div class="card-header">
+      <h4><a class="text-decoration-none" href="{% url 'house-detail' house.pk %}">{{ house.name }}</a></h4>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Країна:</strong> {{ house.country }}</li>
+      <li class="list-group-item"><strong>Кількість кімнат:</strong> {{ house.room_count }}</li>
+      <li class="list-group-item"><strong>Кількість людей:</strong> {{ house.people_count }}</li>
+      <li class="list-group-item"><strong>Ціна за добу:</strong> {{ house.price_by_day }}</li>
+      <li class="list-group-item"><strong>Рейтинг:</strong> {{ house.rating }}</li>
+    </ul>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
