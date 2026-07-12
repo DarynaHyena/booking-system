@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from booking.models import HouseModel, BookingModel
 
 
@@ -30,5 +30,7 @@ def house_create_view(request):
 def house_update_view(request):
   pass
 
-def house_delete_view(request):
-  pass
+def house_delete_view(request, pk):
+  house = get_object_or_404(HouseModel, pk=pk)
+  house.delete()
+  return redirect('house-list')
