@@ -15,9 +15,9 @@ def houses_list_view(request):
 
 
 def booked_houses_view(request):
-  booked = HouseModel.objects.filter(is_booked=True)
+  houses = HouseModel.objects.filter(is_booked=True)
   context = {
-    "houses": booked
+    "houses": houses
   }
 
   return render(
