@@ -13,6 +13,11 @@ def houses_list_view(request):
     context
     )
 
+
+
+
+
+
 def house_detail_view(request, pk):
   house = get_object_or_404(HouseModel, pk=pk)
   context = {

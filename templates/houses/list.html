@@ -13,6 +13,10 @@
       <li class="list-group-item"><strong>Кількість людей:</strong> {{ house.people_count }}</li>
       <li class="list-group-item"><strong>Ціна за добу:</strong> {{ house.price_by_day }}</li>
       <li class="list-group-item"><strong>Рейтинг:</strong> {{ house.rating }}</li>
+      <li class="list-group-item">
+        <a class="btn btn-outline-warning" href="{% url 'house-update' house.pk %}">Редагувати</a>
+        <a class="btn btn-outline-danger" href="{% url 'house-delete' house.pk %}">Видалити</a>
+      </li>
     </ul>
   </div>
   {% endfor %}
