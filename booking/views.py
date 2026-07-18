@@ -14,9 +14,17 @@ def houses_list_view(request):
     )
 
 
+def booked_houses_view(request):
+  booked = HouseModel.objects.filter(is_booked=True)
+  context = {
+    "houses": booked
+  }
 
-
-
+  return render(
+    request, 
+    'houses/booked.html', 
+    context
+    )
 
 def house_detail_view(request, pk):
   house = get_object_or_404(HouseModel, pk=pk)
