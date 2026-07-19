@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 class HouseModel(models.Model):
   name = models.CharField(max_length=50, verbose_name="Name")
@@ -32,15 +33,14 @@ class BookingModel(models.Model):
     ("done", "Виконано"),
     ("canceled", "Скасовано"),
   ]
+
+  user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Користувач", related_name="user_bookings")
+
   house = models.ForeignKey(HouseModel, on_delete=models.CASCADE, verbose_name="House", related_name="bookings")
   arrival_date = models.DateField(verbose_name="Arrival date")
   departure_date = models.DateField(verbose_name="Departure date")
   status = models.CharField(choices=STATUS_CHOICES, max_length=20, default="in_progress", verbose_name="Status")
   comment = models.CharField(max_length=150, blank=True, null=True, verbose_name="Comment")
-
-  user_first_name = models.CharField(max_length=50, verbose_name="First name")
-  user_last_name = models.CharField(max_length=50, verbose_name="Last name")
-  user_phone_number = models.CharField(max_length=20, verbose_name="Phone number")
 
   created_at = models.DateTimeField(auto_now=True)
   updated_at = models.DateTimeField(auto_now_add=True)
