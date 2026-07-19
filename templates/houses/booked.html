@@ -2,16 +2,16 @@
 {% block title %}Список заброньованих будинків{% endblock %}
 {% block content %} 
 <div class="d-flex flex-wrap justify-content-center gap-3">
-  {% for house in houses %}
+  {% for booking in bookings %}
   <div class="card" style="width: 22rem;">
-    <h4>{{ house.name }}</h4>
+    <h4>{{ booking.house.name }}</h4>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><strong>Країна:</strong> {{ house.country }}</li>
-      <li class="list-group-item"><strong>Адресса:</strong> {{ house.address }}</li>
-      <li class="list-group-item"><strong>Ціна за добу:</strong> {{ house.price_by_day }}</li>
-      <li class="list-group-item"><strong>Рейтинг:</strong> {{ house.rating }}</li>
+      <li class="list-group-item"><strong>Країна:</strong> {{ booking.house.country }}</li>
+      <li class="list-group-item"><strong>Адресса:</strong> {{ booking.house.address }}</li>
+      <li class="list-group-item"><strong>Ціна за добу:</strong> {{ booking.house.price_by_day }}</li>
+      <li class="list-group-item"><strong>Рейтинг:</strong> {{ booking.house.rating }}</li>
       <li class="list-group-item">
-        <a class="btn btn-outline-info" href="{% url 'house-detail' house.pk %}">Інфориація про будинок</a>
+        <a class="btn btn-outline-info" href="{% url 'house-detail' booking.house.pk %}">Інфориація про будинок</a>
       </li>
     </ul>
   </div>
