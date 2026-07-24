@@ -26,6 +26,21 @@ def booked_houses_view(request):
     context
     )
 
+
+
+def booked_house_detail_view(request, pk):
+  booked_house = get_object_or_404(BookingModel, pk=pk)
+  context = {
+    "booking" : booked_house
+  }
+  return render(
+    request, 
+    'houses/booked_details.html', 
+    context
+    )
+
+
+
 def house_detail_view(request, pk):
   house = get_object_or_404(HouseModel, pk=pk)
   context = {

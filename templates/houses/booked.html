@@ -11,7 +11,7 @@
       <li class="list-group-item"><strong>Ціна за добу:</strong> {{ booking.house.price_by_day }}</li>
       <li class="list-group-item"><strong>Рейтинг:</strong> {{ booking.house.rating }}</li>
       <li class="list-group-item">
-        <a class="btn btn-outline-info" href="{% url 'house-detail' booking.house.pk %}">Інфориація про будинок</a>
+        <a class="btn btn-outline-info" href="{% url 'booked-house-detail' booking.pk %}">Інфориація про будинок</a>
       </li>
     </ul>
   </div>

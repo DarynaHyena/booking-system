@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Інформація про заброньований будинок{% endblock %}
+{% block content %} 
+<h4>{{ booking.house.name }}</h4>
+<ul>
+  <li class="list-group-item"><strong>Заброньовано:</strong> {{ booking.user.first_name }} {{ booking.user.last_name }}</li>
+  <li class="list-group-item"><strong>Дата заїзду:</strong> {{ booking.arrival_date }}</li>
+  <li class="list-group-item"><strong>Дата виїзду:</strong> {{ booking.departure_date }}</li>
+</ul>
+{% endblock %}

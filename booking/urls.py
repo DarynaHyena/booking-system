@@ -5,6 +5,7 @@ from booking import views
 urlpatterns = [
   path('houses/', views.houses_list_view, name='houses-list'),
   path('houses/booked/', views.booked_houses_view, name='booked-houses-list'),
+  path('houses/booked_detail/<int:pk>', views.booked_house_detail_view, name='booked-house-detail'),
   path('houses/detail/<int:pk>', views.house_detail_view, name='house-detail'),
   path('houses/create/', views.house_create_view, name='house-create'),
   path('houses/update/<int:pk>', views.house_update_view, name='house-update'),
